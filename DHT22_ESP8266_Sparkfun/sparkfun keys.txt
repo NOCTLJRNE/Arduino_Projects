@@ -1,0 +1,82 @@
+New Stream: DHT22
+info from DHT22 sensor via ESP8266
+
+Fields: humidity temp
+
+Tags:
+
+Public URL
+
+http://data.sparkfun.com/streams/NJXAEOaGOQu3GR977lOY
+Public Key
+
+NJXAEOaGOQu3GR977lOY
+Private Key
+
+5d5r7Z69ZXiYVWMrrEdz
+Keep this key secret, and in a safe place.  You will not be able to retrieve it.
+
+Delete Key
+
+BpG2EbnZbjFkgnd99E3M
+This key can only be used once.  Keep this key secret, and in a safe place.  You will not be able to retrieve it.
+
+Download Your Keys
+
+Download your keys as a JSON file.
+Keep this file secret and in a safe place.
+
+Logging using query string parameters
+Format:
+
+http://data.sparkfun.com/input/[publicKey]?private_key=[privateKey]&humidity=[value]&temp=[value]
+Example:
+
+ http://data.sparkfun.com/input/NJXAEOaGOQu3GR977lOY?private_key=5d5r7Z69ZXiYVWMrrEdz&humidity=5.10&temp=4.56
+If you would like to learn more about how to use data.sparkfun.com, please visit the documentation for more info.
+
+
+
+DATA.SPARKFUN.COM
+New Stream: DHT22
+info from DHT22 sensor via ESP8266
+
+Fields: h_index humidity temp
+
+Tags:
+
+Public URL
+
+http://data.sparkfun.com/streams/DJqyXGqO9KSz5GzRoY45
+Public Key
+
+DJqyXGqO9KSz5GzRoY45
+Private Key
+
+P4p7mXpvazTk41kJzM84
+Keep this key secret, and in a safe place.  You will not be able to retrieve it.
+
+Delete Key
+
+p3oO7BoEvyTY5jY7dqR5
+This key can only be used once.  Keep this key secret, and in a safe place.  You will not be able to retrieve it.
+
+Download Your Keys
+
+Download your keys as a JSON file.
+Keep this file secret and in a safe place.
+
+Logging using query string parameters
+Format:
+
+http://data.sparkfun.com/input/[publicKey]?private_key=[privateKey]&h_index=[value]&humidity=[value]&temp=[value]
+Example:
+
+ http://data.sparkfun.com/input/DJqyXGqO9KSz5GzRoY45?private_key=P4p7mXpvazTk41kJzM84&h_index=13.25&humidity=27.21&temp=15.85
+If you would like to learn more about how to use data.sparkfun.com, please visit the documentation for more info.
+
+Send yourself a copy of your keys
+Via
+Email Address 
+Send
+Brought to you with ? by SparkFun Electronics. Powered by 
