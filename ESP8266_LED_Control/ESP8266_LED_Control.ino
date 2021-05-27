@@ -9,7 +9,7 @@
 
 
 // Configuration: 
-#define WIFI_NAME       "VNPT_52LQD"  // Your WiFi AP.
+#define WIFI_NAME       "HuongPham"  // Your WiFi AP.
 #define WIFI_PASSWORD   "trang123456" // Your WiFi AP password.
 #define LED_PIN         5                // 2 Pin connected to the LED.
 #define SERVER_PORT     5000             // Port the server will listen for connections.
@@ -104,4 +104,3 @@ void loop() {
   // Call flush to make sure any queued up data finishes sending to the client.
   client.flush();
 }
-
