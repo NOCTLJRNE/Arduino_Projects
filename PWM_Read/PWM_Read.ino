@@ -22,7 +22,9 @@ enum movement {
   DOWNRIGHT,
   DOWNLEFT,
   SPINLEFT,
-  SPINRIGHT
+  SPINRIGHT,
+  EDGELEFT,
+  EDGERIGHT
 };
 movement bot_mov = N;
 void setup() {
@@ -79,20 +81,37 @@ void loop() {
         }        
       } else if (RC_in_trim[2] == 0.0) {
         if (RC_in_trim[3] == 0.0){
-          bot_mov = N;
+          if (RC_in_trim[0] == 0.0){
+            if (RC_in_trim[1] == -1.0){
+              //bot_mov = SPINLEFT;
+              bot_mov = EDGELEFT;  
+            } else if (RC_in_trim[1] == 1.0){
+              //bot_mov = SPINRIGHT;
+              bot_mov = EDGERIGHT;   
+            } else {
+              bot_mov = N;           
+            }
+          }
+          else if (RC_in_trim[0] == -1.0){
+            //bot_mov = EDGERIGHT;
+            bot_mov = SPINRIGHT;
+          }
+          else if (RC_in_trim[0] == 1.0){
+            //bot_mov = EDGELEFT;
+            bot_mov = SPINLEFT;
+          }          
+          else {
+            bot_mov = N;                      
+          }
         } else if (RC_in_trim[3] == -1.0){
           bot_mov = LEFT;
         } else if (RC_in_trim[3] == 1.0){
           bot_mov = RIGHT;
-        }  
-      } else {
-        if (RC_in_trim[1] == -1.0){
-          bot_mov = SPINLEFT;  
-        } else if (RC_in_trim[1] == 1.0){
-          bot_mov = SPINRIGHT;   
         } else {
-          bot_mov = N;
-        }        
+          bot_mov = N; 
+        }
+      } else {
+          bot_mov = N;        
       }
       //set digital output
       if (bot_mov == UP) {
@@ -196,7 +215,59 @@ void loop() {
         // RL not rolling
         digitalWrite(PIN10, LOW);
         digitalWrite(PIN11, LOW); 
-         // RR roll backward
+        // RR roll backward
+        digitalWrite(PIN12, HIGH);
+        digitalWrite(PIN13, LOW);                                     
+      } else if (bot_mov == SPINLEFT) {
+        // FL roll backward
+        digitalWrite(PIN6, HIGH);
+        digitalWrite(PIN7, LOW);
+        // FR roll forward
+        digitalWrite(PIN8, LOW);
+        digitalWrite(PIN9, HIGH);
+        // RL roll backward
+        digitalWrite(PIN10, HIGH);
+        digitalWrite(PIN11, LOW);
+        // RR roll forward
+        digitalWrite(PIN12, LOW);
+        digitalWrite(PIN13, HIGH);                                         
+      } else if (bot_mov == SPINRIGHT) {
+        // FL roll forward
+        digitalWrite(PIN6, LOW);
+        digitalWrite(PIN7, HIGH);
+        // FR roll backward
+        digitalWrite(PIN8, HIGH);
+        digitalWrite(PIN9, LOW); 
+        // RL roll forward
+        digitalWrite(PIN10, LOW);
+        digitalWrite(PIN11, HIGH);
+        // RR roll backward
+        digitalWrite(PIN12, HIGH);
+        digitalWrite(PIN13, LOW);                                    
+      } else if (bot_mov == EDGELEFT) {
+        // FL not rolling
+        digitalWrite(PIN6, LOW);
+        digitalWrite(PIN7, LOW);
+        // FR not rolling
+        digitalWrite(PIN8, LOW);
+        digitalWrite(PIN9, LOW); 
+        // RL roll backward
+        digitalWrite(PIN10, HIGH);
+        digitalWrite(PIN11, LOW);
+        // RR roll forward
+        digitalWrite(PIN12, LOW);
+        digitalWrite(PIN13, HIGH);                                      
+      } else if (bot_mov == EDGERIGHT) {
+        // FL not rolling
+        digitalWrite(PIN6, LOW);
+        digitalWrite(PIN7, LOW);
+        // FR not rolling
+        digitalWrite(PIN8, LOW);
+        digitalWrite(PIN9, LOW); 
+        // RL roll forward
+        digitalWrite(PIN10, LOW);
+        digitalWrite(PIN11, HIGH);
+        // RR roll backward
         digitalWrite(PIN12, HIGH);
         digitalWrite(PIN13, LOW);                                     
       } else {
